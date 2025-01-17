@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.views import LoginView
 
 # Create your views here.
 
@@ -18,3 +19,7 @@ def register(request):
         print("Rendering empty registration form.")
         form = UserCreationForm()
     return render(request, 'registration/register.html', {'form': form})
+    
+
+class EventOrganizerLoginView(LoginView):
+    template_name = 'members/login.html'  # Custom template for event organizers
