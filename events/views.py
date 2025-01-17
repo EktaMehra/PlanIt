@@ -27,3 +27,15 @@ def event_create(request):
     print("Event creation view accessed.")
     if request.method == 'POST':
         form = EventForm(request.POST)
+        if form.is_valid():
+            print("Event form is valid. Creating event.")
+            event = form.save(commit=False)
+            event.created_by = request.user
+            event.save()
+            return redirect('event_list')
+        else:
+            print("Rendering empty event form.")
+            form = EventForm()
+        return render(request, 'events/event_form.html', {'form': form})
+
+
