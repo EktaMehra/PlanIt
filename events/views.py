@@ -38,4 +38,29 @@ def event_create(request):
             form = EventForm()
         return render(request, 'events/event_form.html', {'form': form})
 
+@login_required
+def event_update(request, pk):
+    print(f"Accessing update view for event ID: {pk}")
+    event = get_object_or_404(Event, pk=pk, created_by=request.user)
+    if request.method == 'POST':
+        form = EventForm(request.POST, instance=event)
+        if form.is_valid():
+            print("Event form is valid. Updating event.")
+            form.save()
+            return redirect('event_list')
+    else:
+        print("Rendering event form with existing data.")
+        form = EventForm(instance=event)
+    return render(request, 'events/event_form.html', {'form': form})
+
+@login_required
+def event_delete(request, pk):
+    print(f"Accessing delete view for event ID: {pk}")
+    event = get_object_or_404(Event, pk=pk, created_by=request.user)
+    if request.method == 'POST':
+        print("Deleting event.")
+        event.delete()
+        return redirect('event_list')
+    return render(request, 'events/event_confirm_delete.html', {'event': event})
+
 
