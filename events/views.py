@@ -1,7 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404, redirect
 from .models import Event
 from .forms import EventForm
-from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
 
 # Create your views here.
@@ -64,3 +63,12 @@ def event_delete(request, pk):
     return render(request, 'events/event_confirm_delete.html', {'event': event})
 
 
+def create_event(request):
+    if request.method == 'POST':
+        form = EventForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('home')  # Redirect to home page after creation
+    else:
+        form = EventForm()
+    return render(request, 'events/create_event.html', {'form': form})
