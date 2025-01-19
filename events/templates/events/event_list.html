@@ -1,16 +1,30 @@
 {% extends 'base.html' %}
 
-
 {% block content %}
-<h2>Your Events</h2>
-<a href="{% url 'event_create' %}">Create New Event</a>
-<ul>
-    {% for event in events %}
-    <li>
-        <a href="{% url 'event_detail' event.pk %}">{{ event.name }}</a>
-        <a href="{% url 'event_update' event.pk %}">Edit</a>
-        <a href="{% url 'event_delete' event.pk %}">Delete</a>
-    </li>
-    {% endfor %}
-</ul>
+<h1 class="mb-4">Event List</h1>
+<div class="d-flex justify-content-end mb-3">
+    <a href="{% url 'create_event' %}" class="btn btn-success">Create Event</a>
+</div>
+<table class="table table-bordered">
+    <thead class="table-light">
+        <tr>
+            <th>Title</th>
+            <th>Date</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for event in events %}
+        <tr>
+            <td>{{ event.title }}</td>
+            <td>{{ event.date }}</td>
+            <td>
+                <a href="{% url 'event_detail' event.pk %}" class="btn btn-info btn-sm">View</a>
+                <a href="{% url 'event_update' event.pk %}" class="btn btn-warning btn-sm">Edit</a>
+                <a href="{% url 'event_delete' event.pk %}" class="btn btn-danger btn-sm">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
 {% endblock %}
