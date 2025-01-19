@@ -4,6 +4,8 @@
 <div class="container"></div>
     <h1>Welcome to PlanIt</h1>
     <p>Manage your events seamlessly!</p>
+    
+    <a  class="btn btn-primary" href="{% url 'event_create' %}">Create Event</a>
 
     <!-- Search Bar -->
     <form method="GET" action="{% url 'home' %}" class="mb-4">
@@ -28,7 +30,4 @@
         <p>No events found.</p>
     {% endif %}
 </div>
-    <a href="{% url 'event_create' %}">Create Event</a>
-
-
 {% endblock %}
