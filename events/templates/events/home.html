@@ -1,11 +1,34 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<div class="container"></div>
+    <h1>Welcome to PlanIt</h1>
+    <p>Manage your events seamlessly!</p>
 
-<h1>Welcome to PlanIt</h1>
-<p>Manage your events seamlessly!</p>
+    <!-- Search Bar -->
+    <form method="GET" action="{% url 'home' %}" class="mb-4">
+        <div class="input-group">
+            <input type="text" name="q" value="{{ query }}" class="form-control" placeholder="Search events by name or category">
+            <button type="submit" class="btn btn-primary">Search</button>
+        </div>
+    </form>
 
-<a href="{% url 'event_create' %}">Create Event</a>
+    <!-- Event List -->
+    <h2>My Events</h2>
+    {% if events %}
+        <ul class="list-group">
+            {% for event in events %}
+                <li class="list-group-item">
+                    <strong>{{ event.name }}</strong> - {{ event.date }}
+                    <a href="{% url 'event_detail' event.pk %}" class="btn btn-sm btn-info float-end">View</a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No events found.</p>
+    {% endif %}
+</div>
+    <a href="{% url 'event_create' %}">Create Event</a>
 
 
 {% endblock %}

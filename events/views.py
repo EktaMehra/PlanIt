@@ -2,11 +2,20 @@ from django.shortcuts import render, get_object_or_404, redirect
 from .models import Event
 from .forms import EventForm
 from django.contrib.auth.decorators import login_required
+from django.db.models import Q  # For complex queries
 
 # Create your views here.
 def home(request):
-    print("Home page accessed.")
-    return render(request, 'events/home.html')
+    query = request.GET.get('q', '')  # Get search term
+    if query:
+        events = Event.objects.filter(
+            Q(name__icontains=query) | Q(category__icontains=query),
+            created_by=request.user  # Ensure events belong to the user
+        )
+    else:
+        events = Event.objects.filter(created_by=request.user)
+
+    return render(request, 'events/home.html', {'events': events, 'query': query})
 
 
 @login_required
