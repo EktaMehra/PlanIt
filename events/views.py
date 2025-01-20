@@ -9,15 +9,22 @@ from django.contrib import messages
 
 # Home view with search functionality
 def home(request):
-    query = request.GET.get('q', '').strip()  # Get search term and trim whitespace
+    query = request.GET.get('q', '').strip()
     if query:
-        events = Event.objects.filter(
-            Q(name__icontains=query) | Q(category__icontains=query),
-            created_by=request.user  # Ensure events belong to the user
-        )
+        if request.user.is_authenticated:
+            events = Event.objects.filter(
+                Q(name__icontains=query) | Q(category__icontains=query),
+                created_by=request.user
+            )
+        else:
+            events = Event.objects.filter(
+                Q(name__icontains=query) | Q(category__icontains=query)
+            )
     else:
-        events = Event.objects.filter(created_by=request.user)
-
+        if request.user.is_authenticated:
+            events = Event.objects.filter(created_by=request.user)
+        else:
+            events = Event.objects.all()  # Or filter to only public events if such a field exists
     return render(request, 'events/home.html', {'events': events, 'query': query})
 
 

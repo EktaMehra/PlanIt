@@ -130,9 +130,7 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-CSRF_TRUSTED_ORIGINS = [
-    'https://8000-ektamehra-planit-z3psrzz3j42.ws.codeinstitute-ide.net',
-]
+CSRF_TRUSTED_ORIGINS = ['https://8000-ektamehra-planit-z3psrzz3j42.ws.codeinstitute-ide.net',]
 
 
 MESSAGE_TAGS = {
@@ -142,3 +140,6 @@ MESSAGE_TAGS = {
     messages.WARNING: 'warning',
     messages.ERROR: 'danger',
 }
+
+LOGIN_REDIRECT_URL = '/'  # Redirect to the home page after login
+LOGOUT_REDIRECT_URL = '/'  # Redirect to the home page after logout

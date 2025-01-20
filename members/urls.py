@@ -6,5 +6,5 @@ from django.contrib.auth import views as auth_views
 urlpatterns = [
     path('login/', EventOrganizerLoginView.as_view(), name='organizer_login'),
     path('register/', views.register, name='register'),
-    path('logout/', auth_views.LogoutView.as_view(next_page='home'), name='logout'),
+    path('logout/', auth_views.LogoutView.as_view(), name='logout'),
 ]
