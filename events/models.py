@@ -15,6 +15,3 @@ class Event(models.Model):
 
     def __str__(self):
         return self.name
-
-# Log statement to confirm Event model loading
-print("Event model loaded successfully.")

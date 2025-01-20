@@ -3,6 +3,7 @@ from .models import Event
 from .forms import EventForm
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q  # For complex queries
+from django.contrib import messages
 
 # Create your views here.
 
@@ -37,6 +38,7 @@ def event_create(request):
             event = form.save(commit=False)
             event.created_by = request.user  # Ensure 'created_by' is a field in the Event model
             event.save()
+            messages.success(request, 'Event created successfully!')
             return redirect('event_list')  # Redirect to the list of events
     else:
         print("Rendering empty event form.")
