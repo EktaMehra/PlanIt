@@ -1,11 +1,15 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h2>{{ event.name }}</h2>
-<p>{{ event.description }}</p>
-<p>{{ event.location }}</p>
-<p>{{ event.date }} at {{ event.time }}</p>
-<a href="{% url 'event_update' event.pk %}">Edit</a>
-<a href="{% url 'event_delete' event.pk %}">Delete</a>
-<a href="{% url 'event_list' %}">Back to Events</a>
+<div class="container mt-5">
+    <h2 class="mb-3">{{ event.name }}</h2>
+    <p><strong>Description:</strong> {{ event.description }}</p>
+    <p><strong>Location:</strong> {{ event.location }}</p>
+    <p><strong>Date:</strong> {{ event.date }} at {{ event.time }}</p>
+    <div class="mt-4">
+        <a href="{% url 'event_update' event.pk %}" class="btn btn-warning me-2">Edit</a>
+        <a href="{% url 'event_delete' event.pk %}" class="btn btn-danger me-2">Delete</a>
+        <a href="{% url 'event_list' %}" class="btn btn-secondary">Back to Events</a>
+    </div>
+</div>
 {% endblock %}
