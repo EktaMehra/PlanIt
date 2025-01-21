@@ -5,7 +5,8 @@
     <h1>Welcome to PlanIt</h1>
     <p>Manage your events seamlessly!</p>
     
-    <a  class="btn btn-primary" href="{% url 'event_create' %}">Create Event</a>
+    <div><a  class="btn btn-primary" href="{% url 'event_create' %}">Create Event</a></div>
+    <br>
 
     <!-- Search Bar -->
     <form method="GET" action="{% url 'home' %}" class="mb-4">
@@ -16,18 +17,54 @@
     </form>
 
     <!-- Event List -->
-    <h2>My Events</h2>
+    <h2>Available Events</h2>
     {% if events %}
-        <ul class="list-group">
+        <div class="list-group">
             {% for event in events %}
-                <li class="list-group-item">
-                    <strong>{{ event.name }}</strong> - {{ event.date }}
-                    <a href="{% url 'event_detail' event.pk %}" class="btn btn-sm btn-info float-end">View</a>
-                </li>
+                <div class="list-group-item mb-3 p-3 shadow-sm">
+                    <h4 class="mb-2">{{ event.name }}</h4>
+                    <p class="mb-1 text-muted">{{ event.date }} | {{ event.time }}</p>
+                    <p>{{ event.description }}</p>
+                    <a href="{% url 'event_detail' event.pk %}" class="btn btn-primary btn-sm mt-2">View Details</a>
+                </div>
             {% endfor %}
-        </ul>
+        </div>
     {% else %}
         <p>No events found.</p>
     {% endif %}
+
+        <!-- Pagination Controls -->
+        <nav class="d-flex justify-content-center mt-4">
+            <ul class="pagination pagination-lg">
+                {% if page_obj.has_previous %}
+                    <li class="page-item">
+                        <a class="page-link text-primary" href="?page={{ page_obj.previous_page_number }}&q={{ query }}">
+                            &larr; Previous
+                        </a>
+                    </li>
+                {% endif %}
+        
+                {% for num in page_obj.paginator.page_range %}
+                    {% if num == page_obj.number %}
+                        <li class="page-item active">
+                            <span class="page-link bg-primary border-0">{{ num }}</span>
+                        </li>
+                    {% elif num >= page_obj.number|add:-2 and num <= page_obj.number|add:2 %}
+                        <li class="page-item">
+                            <a class="page-link text-dark" href="?page={{ num }}&q={{ query }}">{{ num }}</a>
+                        </li>
+                    {% endif %}
+                {% endfor %}
+        
+                {% if page_obj.has_next %}
+                    <li class="page-item">
+                        <a class="page-link text-primary" href="?page={{ page_obj.next_page_number }}&q={{ query }}">
+                            Next &rarr;
+                        </a>
+                    </li>
+                {% endif %}
+            </ul>
+        </nav>        
+    
 </div>
 {% endblock %}

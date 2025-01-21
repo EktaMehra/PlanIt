@@ -4,28 +4,29 @@ from .forms import EventForm
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q  # For complex queries
 from django.contrib import messages
+from django.core.paginator import Paginator
+
 
 # Create your views here.
 
-# Home view with search functionality
+# Home view with search functionality and pagination
 def home(request):
     query = request.GET.get('q', '').strip()
+    events = Event.objects.all()
+
+    # Filter events by name based on search query
     if query:
-        if request.user.is_authenticated:
-            events = Event.objects.filter(
-                Q(name__icontains=query) | Q(category__icontains=query),
-                created_by=request.user
-            )
-        else:
-            events = Event.objects.filter(
-                Q(name__icontains=query) | Q(category__icontains=query)
-            )
-    else:
-        if request.user.is_authenticated:
-            events = Event.objects.filter(created_by=request.user)
-        else:
-            events = Event.objects.all()  # Or filter to only public events if such a field exists
-    return render(request, 'events/home.html', {'events': events, 'query': query})
+        events = events.filter(name__icontains=query)
+
+    # Paginate the events
+    paginator = Paginator(events, 5)  # Show 5 events per page
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+
+    return render(request, 'events/home.html', {
+        'page_obj': page_obj,
+        'query': query,
+    })
 
 
 
