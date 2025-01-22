@@ -135,11 +135,11 @@ CSRF_TRUSTED_ORIGINS = ['https://8000-ektamehra-planit-z3psrzz3j42.ws.codeinstit
 
 
 MESSAGE_TAGS = {
-    messages.DEBUG: 'debug',
-    messages.INFO: 'info',
-    messages.SUCCESS: 'success',
-    messages.WARNING: 'warning',
-    messages.ERROR: 'danger',
+    messages.DEBUG: 'Debug',
+    messages.INFO: 'Info',
+    messages.SUCCESS: 'Success',
+    messages.WARNING: 'Warning',
+    messages.ERROR: 'Danger',
 }
 
 LOGIN_REDIRECT_URL = '/'  # Redirect to the home page after login
