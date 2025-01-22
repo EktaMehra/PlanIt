@@ -95,3 +95,10 @@ def event_detail(request, event_id):
         'event': event,
         'booking_form': booking_form,
     })
+
+# Booking confirmation view
+def booking_confirmation(request, event_id):
+    event = get_object_or_404(Event, id=event_id)
+    return render(request, 'events/booking_confirmation.html', {
+        'event': event,
+    })
