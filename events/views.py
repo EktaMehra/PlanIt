@@ -9,25 +9,26 @@ from django.core.paginator import Paginator
 
 # Create your views here.
 
-# Home view with search functionality and pagination
 def home(request):
     query = request.GET.get('q', '').strip()
     events = Event.objects.all()
 
-    # Filter events by name based on search query
+    # Filter events based on the search query
     if query:
         events = events.filter(name__icontains=query)
 
-    # Paginate the events
-    paginator = Paginator(events, 5)  # Show 5 events per page
+    # Paginate events (4 events per page)
+    paginator = Paginator(events, 4)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
 
-    return render(request, 'events/home.html', {
+    # Pass both page_obj and query to the context
+    context = {
         'page_obj': page_obj,
         'query': query,
-    })
+    }
 
+    return render(request, 'events/home.html', context)
 
 
 @login_required
@@ -38,7 +39,7 @@ def event_list(request):
 
 # Event CRUD views
 @login_required
-def event_create(request):
+def create_event(request):
     if request.method == 'POST':
         form = EventForm(request.POST)
         if form.is_valid():

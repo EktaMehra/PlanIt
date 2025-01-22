@@ -1,70 +1,66 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
 
 {% block content %}
-<div class="container"></div>
-    <h1>Welcome to PlanIt</h1>
-    <p>Manage your events seamlessly!</p>
-    
-    <div><a  class="btn btn-primary" href="{% url 'event_create' %}">Create Event</a></div>
-    <br>
+<div class="container mt-5">
+    <!-- Header Section -->
+    <div class="header-section text-center">
+        <h1>Welcome to PlanIt</h1>
+        <p>Manage your events seamlessly!</p>
+        <a href="{% url 'create_event' %}" class="btn btn-primary">Create Event</a>
+    </div>
 
-    <!-- Search Bar -->
-    <form method="GET" action="{% url 'home' %}" class="mb-4">
-        <div class="input-group">
-            <input type="text" name="q" value="{{ query }}" class="form-control" placeholder="Search events by name or category">
-            <button type="submit" class="btn btn-primary">Search</button>
-        </div>
-    </form>
+    <!-- Search Section -->
+    <div class="search-section my-4">
+        <form method="GET" action="{% url 'home' %}">
+            <input
+                type="text"
+                name="q"
+                value="{{ query }}"
+                class="form-control"
+                placeholder="Search events by name or category"
+            />
+            <button type="submit" class="btn btn-primary mt-2">Search</button>
+        </form>
+    </div>
 
-    <!-- Event List -->
-    <h2>Available Events</h2>
-    {% if events %}
-        <div class="list-group">
-            {% for event in events %}
-                <div class="list-group-item mb-3 p-3 shadow-sm">
-                    <h4 class="mb-2">{{ event.name }}</h4>
-                    <p class="mb-1 text-muted">{{ event.date }} | {{ event.time }}</p>
-                    <p>{{ event.description }}</p>
-                    <a href="{% url 'event_detail' event.pk %}" class="btn btn-primary btn-sm mt-2">View Details</a>
-                </div>
-            {% endfor %}
-        </div>
-    {% else %}
-        <p>No events found.</p>
-    {% endif %}
-
-        <!-- Pagination Controls -->
-        <nav class="d-flex justify-content-center mt-4">
-            <ul class="pagination pagination-lg">
-                {% if page_obj.has_previous %}
-                    <li class="page-item">
-                        <a class="page-link text-primary" href="?page={{ page_obj.previous_page_number }}&q={{ query }}">
-                            &larr; Previous
-                        </a>
-                    </li>
-                {% endif %}
-        
-                {% for num in page_obj.paginator.page_range %}
-                    {% if num == page_obj.number %}
-                        <li class="page-item active">
-                            <span class="page-link bg-primary border-0">{{ num }}</span>
-                        </li>
-                    {% elif num >= page_obj.number|add:-2 and num <= page_obj.number|add:2 %}
-                        <li class="page-item">
-                            <a class="page-link text-dark" href="?page={{ num }}&q={{ query }}">{{ num }}</a>
-                        </li>
-                    {% endif %}
+    <!-- Events Section -->
+    <div class="events-section">
+        <h2>Available Events</h2>
+        {% if page_obj %}
+            <div class="row">
+                {% for event in page_obj %}
+                    <div class="col-md-3 mb-4">
+                        <div class="card">
+                            <img
+                                src="{{ event.image.url }}"
+                                alt="{{ event.name }}"
+                                class="card-img-top"
+                            />
+                            <div class="card-body">
+                                <h5 class="card-title">{{ event.name }}</h5>
+                                <p class="card-text">{{ event.description|truncatechars:100 }}</p>
+                                <a href="{% url 'event_detail' event.id %}" class="btn btn-outline-primary">Details</a>
+                            </div>
+                        </div>
+                    </div>
                 {% endfor %}
-        
-                {% if page_obj.has_next %}
-                    <li class="page-item">
-                        <a class="page-link text-primary" href="?page={{ page_obj.next_page_number }}&q={{ query }}">
-                            Next &rarr;
-                        </a>
-                    </li>
-                {% endif %}
-            </ul>
-        </nav>        
-    
+            </div>
+        {% else %}
+            <p>No events found.</p>
+        {% endif %}
+    </div>
+
+    <!-- Pagination Section -->
+    <div class="pagination-section text-center mt-4">
+        {% if page_obj.has_previous %}
+            <a href="?page=1&q={{ query }}" class="btn btn-outline-secondary">First</a>
+            <a href="?page={{ page_obj.previous_page_number }}&q={{ query }}" class="btn btn-outline-secondary">Previous</a>
+        {% endif %}
+        <span class="current-page btn btn-secondary">{{ page_obj.number }}</span>
+        {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}&q={{ query }}" class="btn btn-outline-secondary">Next</a>
+            <a href="?page={{ page_obj.paginator.num_pages }}&q={{ query }}" class="btn btn-outline-secondary">Last</a>
+        {% endif %}
+    </div>
 </div>
 {% endblock %}
