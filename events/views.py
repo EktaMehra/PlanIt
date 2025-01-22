@@ -5,6 +5,7 @@ from django.contrib.auth.decorators import login_required
 from django.db.models import Q  # For complex queries
 from django.contrib import messages
 from django.core.paginator import Paginator
+from .forms import BookingForm
 
 
 # Create your views here.
@@ -77,7 +78,20 @@ def event_delete(request, pk):
     return render(request, 'events/event_confirm_delete.html', {'event': event})
 
 
-@login_required
-def event_detail(request, pk):
-    event = get_object_or_404(Event, pk=pk, created_by=request.user)
-    return render(request, 'events/event_detail.html', {'event': event})
+# Event detail view for public access
+def event_detail(request, event_id):
+    event = get_object_or_404(Event, id=event_id)
+    booking_form = BookingForm()
+
+    if request.method == 'POST':
+        booking_form = BookingForm(request.POST)
+        if booking_form.is_valid():
+            booking = booking_form.save(commit=False)
+            booking.event = event
+            booking.save()
+            return redirect('booking_confirmation', event_id=event.id)
+
+    return render(request, 'events/event_detail.html', {
+        'event': event,
+        'booking_form': booking_form,
+    })
