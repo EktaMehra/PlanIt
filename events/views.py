@@ -83,7 +83,7 @@ def event_detail(request, event_id):
     event = get_object_or_404(Event, id=event_id)
     booking_form = BookingForm()
 
-    if request.method == 'POST':
+    if request.method == 'POST' and not (event.created_by == request.user):
         booking_form = BookingForm(request.POST)
         if booking_form.is_valid():
             booking = booking_form.save(commit=False)

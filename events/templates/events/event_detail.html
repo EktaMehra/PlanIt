@@ -7,7 +7,7 @@
     <p><strong>Location:</strong> {{ event.location }}</p>
     <p><strong>Date:</strong> {{ event.date }} at {{ event.time }}</p>
 
-    {% if user.is_authenticated and event.organizer == user %}
+    {% if user.is_authenticated and event.created_by == user %}
     <div class="mt-4">
         <a href="{% url 'event_update' event.pk %}" class="btn btn-warning me-2">Edit</a>
         <a href="{% url 'event_delete' event.pk %}" class="btn btn-danger me-2">Delete</a>
