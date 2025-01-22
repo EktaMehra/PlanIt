@@ -26,15 +26,17 @@ header h1 {
 .navbar-brand {
     font-weight: bold;
     font-size: 1.5rem;
-    color: #fff !important;
+    color: #333 !important;
 }
 
 .navbar .nav-link {
-    color: #f8f9fa !important;
+    color: #333 !important;
+    margin-right: 15px;
+    transition: color 0.3s ease; 
 }
 
 .navbar .nav-link:hover {
-    color: #ddd !important;
+    color: #6b5b95 !important;
 }
 
 /* Buttons */
@@ -174,24 +176,27 @@ form button:hover {
     width: 100%;
 }
 
-/* Footer */
+/* Footer Styling */
 footer {
-    background-color: #6b5b95;
-    color: white;
-    padding: 20px;
+    background-color: #f8f9fa; 
+    color: #333;
+    font-size: 0.9rem;
+    padding: 20px 0;
     text-align: center;
-    position: sticky;
-    bottom: 0;
     box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
 }
 
-footer a {
-    color: #f8f9fa;
+footer p {
+    margin: 0;
+}
+
+footer p a {
+    color: #6b5b95;
     text-decoration: none;
 }
 
-footer a:hover {
-    color: #ddd;
+footer p a:hover {
+    color: #a38b6d; 
     text-decoration: underline;
 }
 
