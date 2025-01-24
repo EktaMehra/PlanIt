@@ -89,7 +89,10 @@ def event_detail(request, event_id):
             booking = booking_form.save(commit=False)
             booking.event = event
             booking.save()
+            messages.success(request, "Booking successful!")
             return redirect('booking_confirmation', event_id=event.id)
+        else:
+            messages.error(request, "Booking failed. Please correct the errors below.")
 
     return render(request, 'events/event_detail.html', {
         'event': event,
@@ -99,6 +102,8 @@ def event_detail(request, event_id):
 # Booking confirmation view
 def booking_confirmation(request, event_id):
     event = get_object_or_404(Event, id=event_id)
+    booking = event.bookings.last()  # Retrieve the last booking
     return render(request, 'events/booking_confirmation.html', {
         'event': event,
+        'booking': booking,
     })
