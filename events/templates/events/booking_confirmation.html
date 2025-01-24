@@ -3,8 +3,9 @@
 {% block content %}
 <div class="container mt-5">
     <h2>Booking Confirmation</h2>
-    <p>Thank you, <strong>{{ booking.name }}</strong> for booking your spot for <strong>{{ event.name }}</strong>!</p>
-    <p>We look forward to seeing you at <strong>{{ event.location }}</strong> on <strong>{{ event.date }}</strong>.</p>
-    <a href="{% url 'home' %}" class="btn btn-primary mt-3">Return to Home</a>
+    <p>Thank you, {{ booking.name }}! Your booking for the event <strong>{{ event.name }}</strong> has been confirmed.</p>
+    <p><strong>Event Date:</strong> {{ event.date }} at {{ event.time }}</p>
+    <p><strong>Location:</strong> {{ event.location }}</p>
+    <a href="{% url 'home' %}" class="btn btn-primary mt-3">Back to Home</a>
 </div>
 {% endblock %}
