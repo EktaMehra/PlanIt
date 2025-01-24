@@ -123,7 +123,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = 'static/css/style.css/'
 STATICFILES_DIRS = [BASE_DIR / 'static']
 
 # Default primary key field type
@@ -135,12 +135,13 @@ CSRF_TRUSTED_ORIGINS = ['https://8000-ektamehra-planit-z3psrzz3j42.ws.codeinstit
 
 
 MESSAGE_TAGS = {
-    messages.DEBUG: 'Debug',
-    messages.INFO: 'Info',
-    messages.SUCCESS: 'Success',
-    messages.WARNING: 'Warning',
-    messages.ERROR: 'Danger',
+    messages.DEBUG: 'secondary',
+    messages.INFO: 'info',
+    messages.SUCCESS: 'success',
+    messages.WARNING: 'warning',
+    messages.ERROR: 'danger',
 }
+
 
 LOGIN_REDIRECT_URL = '/'  # Redirect to the home page after login
 LOGOUT_REDIRECT_URL = '/'  # Redirect to the home page after logout
