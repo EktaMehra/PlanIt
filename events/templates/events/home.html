@@ -12,6 +12,7 @@
     <!-- Search Section -->
     <div class="search-section my-4">
         <form method="GET" action="{% url 'home' %}">
+            {% csrf_token %}
             <input
                 type="text"
                 name="q"
@@ -53,7 +54,7 @@
     <!-- Pagination Section -->
     <div class="pagination-section text-center mt-4">
         {% if page_obj.has_previous %}
-            <a href="?page=1&q={{ query }}" class="btn btn-outline-secondary">First</a>
+            <a href="?page=1{% if query %}&q={{ query }}{% endif %}" class="btn btn-outline-secondary">First</a>
             <a href="?page={{ page_obj.previous_page_number }}&q={{ query }}" class="btn btn-outline-secondary">Previous</a>
         {% endif %}
         <span class="current-page btn btn-secondary">{{ page_obj.number }}</span>

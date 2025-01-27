@@ -12,7 +12,7 @@ class EventForm(forms.ModelForm):
 
     class Meta:
         model = Event
-        fields = ['name', 'date', 'description', 'category', 'location', 'time', 'created_by']
+        fields = ['name', 'date', 'description', 'category', 'location', 'time']
 
 
 class BookingForm(forms.ModelForm):

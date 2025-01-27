@@ -1,6 +1,6 @@
 from django.test import TestCase, Client
 from django.urls import reverse
-from .models import Event, Booking
+from events.models import Event, Booking
 from django.contrib.auth.models import User
 
 class EventViewsTest(TestCase):
@@ -23,6 +23,7 @@ class EventViewsTest(TestCase):
         response = self.client.get(reverse("event_list"))
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, "Test Event")
+
 
     def test_event_detail_view(self):
         response = self.client.get(reverse("event_detail", args=[self.event.id]))

@@ -1,4 +1,4 @@
-from .models import Event, Booking
+from events.models import Event, Booking
 from django.test import TestCase
 from django.contrib.auth.models import User
 
