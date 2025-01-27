@@ -1,5 +1,5 @@
 from django.test import TestCase
-from .forms import EventForm 
+from .forms import EventForm, BookingForm
 from django.contrib.auth.models import User
 
 # Test Events Form
