@@ -23,3 +23,19 @@ class EventFormTest(TestCase):
         self.assertFalse(form.is_valid())
 
 # Test Booking Form
+class BookingFormTest(TestCase):
+    def test_booking_form_valid(self):
+        form_data = {
+            'name': "John Doe",
+            'email': "john@example.com",
+        }
+        form = BookingForm(data=form_data)
+        self.assertTrue(form.is_valid())
+
+    def test_booking_form_invalid(self):
+        form_data = {
+            'name': "",
+            'email': "",
+        }
+        form = BookingForm(data=form_data)
+        self.assertFalse(form.is_valid())
