@@ -80,7 +80,7 @@ def event_delete(request, id):
 
 # Event detail view for public access
 def event_detail(request, id):
-    event = get_object_or_404(Event, id=event_id)
+    event = get_object_or_404(Event, id=id)
     booking_form = BookingForm()
 
     if request.method == 'POST' and not (event.created_by == request.user):
