@@ -58,8 +58,8 @@ def create_event(request):
 
 
 @login_required
-def event_update(request, pk):
-    event = get_object_or_404(Event, pk=pk, created_by=request.user)
+def event_update(request, id):
+    event = get_object_or_404(Event, id=id, created_by=request.user)
     if request.method == 'POST':
         form = EventForm(request.POST, instance=event)
         if form.is_valid():
@@ -70,8 +70,8 @@ def event_update(request, pk):
     return render(request, 'events/event_form.html', {'form': form, 'action': 'Update'})
 
 @login_required
-def event_delete(request, pk):
-    event = get_object_or_404(Event, pk=pk, created_by=request.user)
+def event_delete(request, id):
+    event = get_object_or_404(Event, id=id, created_by=request.user)
     if request.method == 'POST':
         event.delete()
         return redirect('home')
@@ -79,7 +79,7 @@ def event_delete(request, pk):
 
 
 # Event detail view for public access
-def event_detail(request, event_id):
+def event_detail(request, id):
     event = get_object_or_404(Event, id=event_id)
     booking_form = BookingForm()
 

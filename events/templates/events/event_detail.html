@@ -9,8 +9,8 @@
 
     {% if user.is_authenticated and event.created_by == user %}
     <div class="mt-4">
-        <a href="{% url 'event_update' event.pk %}" class="btn btn-warning me-2">Edit</a>
-        <a href="{% url 'event_delete' event.pk %}" class="btn btn-danger me-2">Delete</a>
+        <a href="{% url 'event_update' event.id %}" class="btn btn-warning me-2">Edit</a>
+        <a href="{% url 'event_delete' event.id %}" class="btn btn-danger me-2">Delete</a>
         <a href="{% url 'event_list' %}" class="btn btn-secondary">Back to Events</a>
     </div>
     {% else %}

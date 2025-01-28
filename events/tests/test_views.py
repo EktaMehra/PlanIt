@@ -11,7 +11,7 @@ class EventViewsTest(TestCase):
         self.event = Event.objects.create(
             name="Test Event",
             date="2025-02-01",
-            description="Test Description",
+            description="A Test event Description",
             category="Music",
             location="Test Location",
             time="18:00:00",
