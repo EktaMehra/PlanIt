@@ -76,7 +76,14 @@ WSGI_APPLICATION = 'event_manage.wsgi.application'
 
 # Database Configuration
 DATABASES = {
-    'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'planit',  # Ensure this matches your DB name
+        'USER': 'postgres',  # Ensure this matches your PostgreSQL role
+        'PASSWORD': 'Planit@2309',  # Ensure this matches your DB password
+        'HOST': '127.0.0.1',  # Change this if using a remote database
+        'PORT': '5432',  # Default PostgreSQL port
+    }
 }
 
 # Password validation
