@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block content %}
 <div class="container mt-5">
@@ -32,11 +33,7 @@
                 {% for event in page_obj %}
                     <div class="col-md-3 mb-4">
                         <div class="card">
-                            <img
-                                src="{{ event.image.url }}"
-                                alt="{{ event.name }}"
-                                class="card-img-top"
-                            />
+                            <img src="{% static 'images/pexels-abbykihano-431722.jpg' %}" class="card-img-top" alt="Event Image" class="card-img-top" />
                             <div class="card-body">
                                 <h5 class="card-title">{{ event.name }}</h5>
                                 <p class="card-text">{{ event.description|truncatechars:100 }}</p>

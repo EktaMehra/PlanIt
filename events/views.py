@@ -19,7 +19,7 @@ def home(request):
         events = events.filter(name__icontains=query)
 
     # Paginate events (4 events per page)
-    paginator = Paginator(events, 4)
+    paginator = Paginator(events, 4) #4 events per page
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
 
