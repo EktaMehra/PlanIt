@@ -27,7 +27,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 DEBUG = True
 
 
-ALLOWED_HOSTS = [ '8000-ektamehra-planit-z3psrzz3j42.ws.codeinstitute-ide.net', '.herokuapp.com' ]
+ALLOWED_HOSTS = [ '127.0.0.1', '.herokuapp.com' ]
 
 # Application definition
 INSTALLED_APPS = [
@@ -103,8 +103,8 @@ STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
 
 # CSRF and Trusted Origins
 CSRF_TRUSTED_ORIGINS = [
-    'http://127.0.0.1:8000',
-    'http://localhost:8000',
+    'http://127.0.0.1',
+    'http://localhost',
     "https://*.codeanyapp.com",
     "https://*.herokuapp.com"
 ]
