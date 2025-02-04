@@ -7,6 +7,19 @@ body {
     padding: 0;
 }
 
+/* HEADER SECTION */
+.header-section {
+    text-align: center;
+    padding: 60px 10vh;
+    background: #6f42c1;
+    color: white;
+    background: url('/static/images/header.jpg') no-repeat center center/cover;
+    max-height: 400px;
+    object-fit: cover;
+    width: 100%;
+    border-radius: 8px;
+}
+
 /* Header */
 header {
     background: linear-gradient(90deg, #6b5b95, #a38b6d);
@@ -16,18 +29,6 @@ header {
     z-index: 1000;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
-
-.header-section {
-    background: url('/static/images/header.jpg') no-repeat center center/cover;
-    height: 300px; /* Adjust height as needed */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    color: white; /* Ensure text is visible */
-    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6); /* Optional for better readability */
-}
-
 
 header h1 {
     color: #fff;
@@ -169,13 +170,14 @@ form button:hover {
 
 /* Auth Pages Container */
 .auth-container {
-    background: url('/static/images/auth_bg.jpg') no-repeat center center/cover;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 80vh;
     padding: 20px;
-    background-color: #f8f5f2; /* Light background */
+    background: url('/static/images/auth_bg.jpg') no-repeat center center/cover;
+    display: flex;
+    justify-content: center;
 }
 
 /* Auth Card */

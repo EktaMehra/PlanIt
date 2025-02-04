@@ -2,11 +2,12 @@
 {% load static %}
 
 {% block content %}
-<div class="container mt-5">
+<div class="container-fluid">
     <!-- Header Section -->
     <div class="header-section text-center">
-        <h1>Welcome to PlanIt</h1>
-        <p>Manage your events seamlessly!</p>
+        <h1>PlanIt</h1>
+        <h3>Create | Manage | Book </h3>
+        <p> events seamlessly!</p>
         <a href="{% url 'create_event' %}" class="btn btn-primary">Create Event</a>
     </div>
 
@@ -33,7 +34,6 @@
                 {% for event in page_obj %}
                     <div class="col-md-3 mb-4">
                         <div class="card">
-                            <img src="{% static 'images/pexels-abbykihano-431722.jpg' %}" class="card-img-top" alt="Event Image" class="card-img-top" />
                             <div class="card-body">
                                 <h5 class="card-title">{{ event.name }}</h5>
                                 <p class="card-text">{{ event.description|truncatechars:100 }}</p>
