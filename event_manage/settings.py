@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'events',  # Custom event app
     'members',  # Custom user management app
     'cloudinary_storage',  # Optional for media files
-    'cloudinary',
+    'cloudinary', # cloudinary app
 ]
 
 MIDDLEWARE = [
@@ -76,7 +76,7 @@ WSGI_APPLICATION = 'event_manage.wsgi.application'
 
 # Database Configuration
 DATABASES = {
-    'default': dj_database_url.config(default=os.getenv('DATABASE_URL'))
+    'default': dj_database_url.config(default=os.getenv('DATABASE_URL')) # database migrated
 }
 
 # Password validation
