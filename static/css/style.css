@@ -38,7 +38,7 @@ header h1 {
 
 .navbar-brand {
     font-weight: bold;
-    font-size: 1.5rem;
+    font-size: 5rem;
     color: #333 !important;
 }
 
@@ -54,24 +54,35 @@ header h1 {
 
 /* Buttons */
 .btn-primary {
-    background-color: #6b5b95;
-    border-color: #6b5b95;
-    color: #fff;
+    background-color: #6b5b95 !important;
+    border-color: #6b5b95 !important;
+    color: #fff !important;
 }
 
 .btn-primary:hover {
-    background-color: #a38b6d;
-    border-color: #a38b6d;
+    background-color: #a38b6d !important;
+    border-color: #a38b6d !important;
 }
 
 .btn {
-    border-radius: 8px;
-    padding: 10px 15px;
-    transition: all 0.3s ease-in-out;
+    border-radius: 8px !important;
+    padding: 10px 15px !important;
+    transition: all 0.3s ease-in-out !important;
 }
 
 .btn:hover {
-    transform: translateY(-2px);
+    transform: translateY(-2px) !important;
+}
+
+.btn-outline-primary {
+    background-color: #6b5b95 !important;
+    border-color: #6b5b95 !important;
+    color: #fff !important;
+}
+
+.btn-outline-primary:hover {
+    background-color: #a38b6d !important;
+    border-color: #a38b6d !important;
 }
 
 /* Forms */
@@ -170,7 +181,6 @@ form button:hover {
 
 /* Auth Pages Container */
 .auth-container {
-    display: flex;
     justify-content: center;
     align-items: center;
     min-height: 80vh;
@@ -189,6 +199,12 @@ form button:hover {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     max-width: 400px;
     width: 100%;
+}
+
+/*event detail page*/
+.event-detail {
+    background: url('/static/images/event-detail.jpg') no-repeat center center/cover;
+    padding: 10px 10px;
 }
 
 /* Footer Styling */
