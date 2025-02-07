@@ -27,3 +27,25 @@ document.addEventListener("DOMContentLoaded", function () {
             .catch(error => console.error("Error checking username:", error));
     });
 });
+
+// Real-time search filter
+document.addEventListener("DOMContentLoaded", function () {
+    const searchInput = document.getElementById("searchInput");
+    const eventsContainer = document.getElementById("eventsContainer");
+    const eventCards = document.querySelectorAll(".event-card");
+
+    searchInput.addEventListener("input", function () {
+        const searchQuery = searchInput.value.toLowerCase();
+
+        eventCards.forEach(card => {
+            const eventName = card.getAttribute("data-name");
+            const eventCategory = card.getAttribute("data-category");
+
+            if (eventName.includes(searchQuery) || eventCategory.includes(searchQuery)) {
+                card.style.display = "block"; // Show matching events
+            } else {
+                card.style.display = "none"; // Hide non-matching events
+            }
+        });
+    });
+});

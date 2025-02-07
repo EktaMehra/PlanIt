@@ -13,30 +13,28 @@
 
     <!-- Search Section -->
     <div class="search-section my-4">
-        <form method="GET" action="{% url 'home' %}">
-            {% csrf_token %}
-            <input
-                type="text"
-                name="q"
-                value="{{ query }}"
-                class="form-control"
-                placeholder="Search events"
-            />
-            <button type="submit" class="btn btn-primary mt-2">Search</button>
-        </form>
+        <input
+            type="text"
+            id="searchInput"
+            class="form-control"
+            placeholder="Search events by name or category..."
+        />
     </div>
 
     <!-- Events Section -->
     <div class="events-section">
         <h2>Available Events</h2>
         {% if page_obj %}
-            <div class="row">
+            <div class="row" id="eventsContainer">
                 {% for event in page_obj %}
-                    <div class="col-md-3 mb-4">
+                    <div class="col-md-3 mb-4 event-card"
+                         data-name="{{ event.name|lower }}"
+                         data-category="{{ event.category.name|lower }}">
                         <div class="card">
                             <div class="card-body">
                                 <h5 class="card-title">{{ event.name }}</h5>
                                 <p class="card-text">{{ event.description|truncatechars:100 }}</p>
+                                <p class="card-category"><strong>Category:</strong> {{ event.category.name }}</p>
                                 <a href="{% url 'event_detail' event.id %}" class="btn btn-outline-primary">Details</a>
                             </div>
                         </div>
@@ -47,6 +45,7 @@
             <p>No events found.</p>
         {% endif %}
     </div>
+
 
     <!-- Pagination Section -->
     <div class="pagination-section text-center mt-4">
