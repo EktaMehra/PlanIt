@@ -1,11 +1,12 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import Event
-from .forms import EventForm
+from .models import Event, Booking
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q  # For complex queries
 from django.contrib import messages
 from django.core.paginator import Paginator
-from .forms import BookingForm
+from .forms import BookingForm, EventForm
+from django.core.mail import send_mail
+from django.conf import settings
 
 
 # Create your views here.
@@ -14,7 +15,7 @@ def home(request):
     query = request.GET.get('q', '').strip()
     events = Event.objects.all()
 
-     # Filter events based on the search query (by name or category)
+    # Filter events based on the search query (by name or category)
     if query:
         events = events.filter(Q(name__icontains=query) | Q(category__icontains=query))
 
@@ -31,6 +32,28 @@ def home(request):
 
     return render(request, 'events/home.html', context)
 
+def book_event(request, event_id):
+    event = Event.objects.get(id=event_id)
+    
+    if request.method == "POST":
+        name = request.POST["name"]
+        email = request.POST["email"]
+        
+        # Create booking
+        booking = Booking.objects.create(event=event, name=name, email=email)
+        
+        # Send email notification
+        send_mail(
+            subject=f"Booking Confirmation for {event.name}",
+            message=f"Hello {name},\n\nYou have successfully booked the event '{event.name}' happening on {event.date} at {event.time}.\n\nThank you!",
+            from_email=settings.EMAIL_HOST_USER,
+            recipient_list=[email],  # Send to the user's email
+            fail_silently=False,
+        )
+        
+        return redirect("home")  # Change this to your desired redirect page
+    
+    return render(request, "book_event.html", {"event": event})
 
 @login_required
 def event_list(request):

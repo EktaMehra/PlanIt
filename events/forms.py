@@ -1,6 +1,6 @@
 from django import forms
-from .models import Event
-from .models import Booking
+from .models import Booking, Event
+
 
 class EventForm(forms.ModelForm):
     date = forms.DateField(
