@@ -13,13 +13,10 @@
 
     <!-- Search Section -->
     <div class="search-section my-4">
-        <input
-            type="text"
-            id="searchInput"
-            class="form-control"
-            placeholder="Search events by name or category..."
-        />
-        <button type="submit" class="btn btn-primary mt-2">Search</button>
+        <form method="GET" action="{% url 'home' %}">
+            <input type="text" name="q" placeholder="Search events..." value="{{ query }}">
+            <button type="submit">Search</button>
+        </form>
     </div>
 
     <!-- Events Section -->
