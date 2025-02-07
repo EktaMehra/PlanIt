@@ -14,9 +14,9 @@ def home(request):
     query = request.GET.get('q', '').strip()
     events = Event.objects.all()
 
-    # Filter events based on the search query
+     # Filter events based on the search query (by name or category)
     if query:
-        events = events.filter(name__icontains=query)
+        events = events.filter(Q(name__icontains=query) | Q(category__icontains=query))
 
     # Paginate events (4 events per page)
     paginator = Paginator(events, 4) #4 events per page

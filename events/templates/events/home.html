@@ -19,6 +19,7 @@
             class="form-control"
             placeholder="Search events by name or category..."
         />
+        <button type="submit" class="btn btn-primary mt-2">Search</button>
     </div>
 
     <!-- Events Section -->
@@ -34,7 +35,7 @@
                             <div class="card-body">
                                 <h5 class="card-title">{{ event.name }}</h5>
                                 <p class="card-text">{{ event.description|truncatechars:100 }}</p>
-                                <p class="card-category"><strong>Category:</strong> {{ event.category.name }}</p>
+                                <p class="card-category"><strong>Category:</strong> {{ event.category }}</p>
                                 <a href="{% url 'event_detail' event.id %}" class="btn btn-outline-primary">Details</a>
                             </div>
                         </div>
