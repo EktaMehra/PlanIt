@@ -7,17 +7,21 @@ body {
     padding: 0;
 }
 
-/* HEADER SECTION */
+/* Header Section */
 .header-section {
     text-align: center;
-    padding: 60px 10vh;
-    background: #6f42c1;
-    color: white;
-    background: url('/static/images/header.jpg') no-repeat center center/cover;
+    padding: 20px 10vh;
+    background-color: #d8c8f7; /* Keep solid background */
+    color: #333;
+    border-radius: 8px;
+}
+
+.header-section img {
+    width: 100%;
     max-height: 400px;
     object-fit: cover;
-    width: 100%;
     border-radius: 8px;
+    margin-bottom: 20px;
 }
 
 /* Header */
@@ -201,10 +205,18 @@ form button:hover {
     width: 100%;
 }
 
-/*event detail page*/
+/* Event Detail Page */
 .event-detail {
-    background: url('/static/images/event-detail.jpg') no-repeat center center/cover;
-    padding: 30px 30px 30px 30px;
+    text-align: left;
+    padding: 30px;
+}
+
+.event-detail img {
+    width: 100%;
+    max-height: 350px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 20px;
 }
 
 /* Footer Styling */

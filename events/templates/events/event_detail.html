@@ -1,7 +1,9 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
 <div class="event-detail container mt-5">
+    <img src="{% static 'images/event-detail.jpg' %}" alt="Event Detail Image">
     <h2 class="mb-3">{{ event.name }}</h2>
     <p><strong>Description:</strong> {{ event.description }}</p>
     <p><strong>Location:</strong> {{ event.location }}</p>
