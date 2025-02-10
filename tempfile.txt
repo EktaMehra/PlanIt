@@ -1,0 +1,10 @@
+2025-02-10T14:00:58.738748+00:00 heroku[web.1]: State changed from crashed to starting
+2025-02-10T14:00:59.758183+00:00 heroku[web.1]: Starting process with command `gunicorn event_manage.wsgi`
+2025-02-10T14:01:00.000000+00:00 app[api]: Build succeeded
+2025-02-10T14:01:00.270769+00:00 app[web.1]: Python buildpack: Detected 512 MB available memory and 8 CPU cores.
+2025-02-10T14:01:00.270854+00:00 app[web.1]: Python buildpack: Defaulting WEB_CONCURRENCY to 2 based on the available memory.
+2025-02-10T14:01:00.317147+00:00 app[web.1]: /bin/bash: line 1: gunicorn: command not found
+2025-02-10T14:01:00.362023+00:00 heroku[web.1]: Process exited with status 127
+2025-02-10T14:01:00.385599+00:00 heroku[web.1]: State changed from starting to crashed
+2025-02-10T14:01:04.451407+00:00 heroku[router]: at=error code=H10 desc="App crashed" method=GET path="/" host=planitbyem-195a427d54d7.herokuapp.com request_id=97e16b1d-c569-4ed8-af48-93f5d17b596b fwd="164.39.81.108" dyno= connect= service= status=503 bytes= protocol=https
+2025-02-10T14:01:04.651389+00:00 heroku[router]: at=error code=H10 desc="App crashed" method=GET path="/favicon.ico" host=planitbyem-195a427d54d7.herokuapp.com request_id=7f0ea701-49b1-4196-9ed4-2359d226d194 fwd="164.39.81.108" dyno= connect= service= status=503 bytes= protocol=https
