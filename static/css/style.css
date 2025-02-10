@@ -281,6 +281,21 @@ footer p {
     }
 }
 
+@media (max-width: 768px) {
+    .header-section {
+        padding: 15px 4vw;
+    }
+
+    .header-section img {
+        max-height: 250px; /* Reduce image size for smaller screens */
+    }
+
+    .header-section h3 {
+        font-size: 1rem; /* Reduce text size */
+        line-height: 1.4;
+    }
+}
+
 
 /*Alert*/
 .alert {
