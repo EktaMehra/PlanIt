@@ -1,1 +1,1 @@
-web: gunicorn PlanIt.wsgi --log-file -
+web: gunicorn event_manage.wsgi
