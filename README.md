@@ -15,49 +15,58 @@ The purpose of this project is to demonstrate my proficiency in Full-Stack web d
 # Features
 
 ## Navbar
-[Nav bar](assets/features/nav-box.jpg)
-- A responsive navigation bar that allows users to easily navigate between different sections of the site, including Home, Login, and Register.
+![Nav bar](assets/features/nav-box.jpg)
+A responsive navigation bar that allows users to easily navigate between different sections of the site, including Home, Login, and Register.
+## Page Description
+![Page description](assets/features/description.jpg)
+ 
 
 ## Search Section
-[Search section](assets/features/search-bar.jpg)
-- A search functionality that enables users to filter events by name or category in real-time, providing a seamless browsing experience.
+![Search section](assets/features/search-bar.jpg)
+A search functionality that enables users to filter events by name or category in real-time, providing a seamless browsing experience.
 
 ## Event List
-[Event list](assets/features/events-list.jpg)
-- A paginated list displaying available events with essential details like name, description, date, and category, making it easy for users to find and explore events.
+![Event list](assets/features/events-list.jpg)
+A paginated list displaying available events with essential details like name, description, date, and category, making it easy for users to find and explore events.
 
 ## Event Detail
-[Event details](assets/features/description.jpg)
-- A dedicated page for each event, providing in-depth details, including event description, location, date, and time, along with a booking option.
+![Event details]
+A dedicated page for each event, providing in-depth details, including event description, location, date, and time, along with a booking option.
 
 ## Create Event Page
-
-- Allows registered users to create new events by filling out a form with event details.
-- Edit Event: Users can modify event details after creation.
-- Delete Event: Users can remove their events if necessary.
-- Update Event: Any changes made to an event are updated in real-time.
-
-## Book Event
-
-- Users can book available events by providing their name and email, ensuring a simple and streamlined booking process.
+![Create event](assets/features/create_event_page.jpg)
+Allows registered users to create new events by filling out a form with event details.
+![CRUD function](assets/features/CRUD-function.jpg)
+Update Event: Any changes made to an event are updated in real-time:
+- Edit Event: Users who have created the event can modify that event details after creation.
+- Delete Event: Users who have created the event can remove their events if necessary.
 
 ## Register Page
-
-- New users can create an account to manage and book events.
+![Register](assets/features/registeration-page.jpg)
+New users can create an account to manage and book events.
 
 ## Login Page
+![Login](assets/features/login-page.jpg)
+Registered users can log in to create, edit, and manage their events while keeping track of their bookings.
 
-- Registered users can log in to create, edit, and manage their events while keeping track of their bookings.
+## Book Event
+![Book event](assets/features/book-event.jpg)
+Users can book available events by providing their name and email, ensuring a simple and streamlined booking process.
+
+## Messaging
+![Alert Messages](assets/features/messaging.jpg)
+Upon 
 
 ## Footer
-
-- A simple footer providing copyright information.
+![Footer](assets/)
+A simple footer providing copyright information.
 
 ## Additional Features for Future Enhancements
 
 - Categories Section: A separate section where users can directly browse events by category.
 - Social Sharing: Users will have the ability to share events via social media platforms.
 - Payment Integration: Option to include payment processing for paid events.
+- Email Notification: Send an notification to users on their email id upon booking an event.
 
 ## Testing
 
