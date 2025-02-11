@@ -43,11 +43,22 @@ Update Event: Any changes made to an event are updated in real-time:
 
 ## Register Page
 ![Register](assets/features/registeration-page.jpg)
-New users can create an account to manage and book events.
+- New users can create an account to create and manage their events on the page.
+- The registration page link is in the navigation bar and at the bottom of the login page.
+- To become a member, the user has to enter a username and password.
+- If the provided username and password are valid, the user is automatically taken to the login page where they can then enter their credentials to create events.
+### Validation
+![Username validation](assets/features/)
+- If the entered username is already taken, the form shows an error message and asks the user to use a different username. 
+- After fixing the username and reentering the same password twice, the user can submit the form successfully.
 
 ## Login Page
 ![Login](assets/features/login-page.jpg)
-Registered users can log in to create, edit, and manage their events while keeping track of their bookings.
+- Registered users can log in to create, edit, and manage their events.
+- If an unregistered user wants to create events, they have to log in.
+- The user can reach the login page by the link in the navigation bar or through links available throughout the website.
+- To log in, the user needs to have their username and password registered on the register page.
+- If the username and/or password are incorrect, the page indicates an error.
 
 ## Book Event
 ![Book event](assets/features/book-event.jpg)
@@ -63,16 +74,17 @@ A simple footer providing copyright information.
 
 ## Additional Features for Future Enhancements
 
-- Categories Section: A separate section where users can directly browse events by category.
-- Social Sharing: Users will have the ability to share events via social media platforms.
-- Payment Integration: Option to include payment processing for paid events.
-- Email Notification: Send an notification to users on their email id upon booking an event.
+- **Categories Section:** A separate section where users can directly browse events by category.
+- **Social Sharing:** Users will have the ability to share events via social media platforms.
+- **Payment Integration:** Option to include payment processing for paid events.
+- **Email Notification:** Send an notification to users on their email id upon booking an event.
 
 ## Testing
 
 ### Manual Testing
 
 - Ensuring core features function as expected by manually testing event creation, searching, and booking.
+- I shared the website with multiple users to confirm its functionality and to get feedback on their experience.
 
 ### Automated Testing
 
