@@ -92,11 +92,30 @@ A simple footer providing copyright information.
 
 ### Validation
 
-- Python: Code validated using PEP8 to maintain coding standards.
-- HTML: Checked using the W3C HTML validator.
-- CSS: Verified for errors using the W3C CSS validator.
-- JavaScript: Console logs and debugging tools were used to ensure smooth execution.
-- Bugs: Identified and fixed any issues encountered during testing.
+- **Python:** 
+
+Code validated using PEP8 to maintain coding standards.
+
+- **HTML:** 
+
+Checked using the W3C HTML validator.
+
+- **CSS:** 
+
+Verified for errors using the W3C CSS validator.
+
+- **JavaScript:** 
+
+Console logs and debugging tools were used to ensure smooth execution.
+
+- **Bugs:**
+There are no known unfixed bugs. Identified and fixed any issues encountered during testing.
+
+
+- **Lighthouse Report:**
+
+![Lighthouse Report](assets/)  
+The website was tested with Google Lighthouse.
 
 ## Development Process
 
