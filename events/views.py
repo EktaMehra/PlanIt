@@ -34,8 +34,7 @@ def home(request):
 @login_required
 def event_list(request):
     events = Event.objects.filter(created_by=request.user)
-    return render(request, 'events/event_list.html', {'events': events})
-
+    return render(request, 'events/event_list.html', {'events': events, 'my_events': True})
 
 # Event CRUD views
 @login_required
