@@ -18,7 +18,7 @@ class EventForm(forms.ModelForm):
 class BookingForm(forms.ModelForm):
     class Meta:
         model = Booking
-        fields = ['name', 'email',]
+        fields = ['name', 'email']
 
     def clean_email(self):
         email = self.cleaned_data.get('email')

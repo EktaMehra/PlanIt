@@ -7,6 +7,7 @@ from django.test import TestCase, Client
 from django.contrib.auth.models import User
 from django.urls import reverse
 
+
 class MembersTests(TestCase):
     def setUp(self):
         self.client = Client()
@@ -56,9 +57,8 @@ class MembersTests(TestCase):
 
     def test_logout_view(self):
         self.client.login(username='testuser', password='TestPassword123')
-        response = self.client.post(reverse('logout')) 
+        response = self.client.post(reverse('logout'))
         self.assertEqual(response.status_code, 302)  # Redirect after logout
-
 
     def test_check_username_taken(self):
         response = self.client.get(reverse('check_username') + '?username=testuser')

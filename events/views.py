@@ -18,7 +18,7 @@ def home(request):
         events = events.filter(Q(name__icontains=query) | Q(category__icontains=query))
 
     # Paginate events (4 events per page)
-    paginator = Paginator(events, 4) #4 events per page
+    paginator = Paginator(events, 4)  # 4 events per page
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
 
@@ -52,7 +52,6 @@ def create_event(request):
     else:
         print("Rendering empty event form.")
         form = EventForm()
-        
     return render(request, 'events/event_form.html', {'form': form})
 
 
@@ -67,6 +66,7 @@ def event_update(request, id):
     else:
         form = EventForm(instance=event)
     return render(request, 'events/event_form.html', {'form': form, 'action': 'Update'})
+
 
 @login_required
 def event_delete(request, id):
@@ -98,7 +98,10 @@ def event_detail(request, id):
         'booking_form': booking_form,
     })
 
+
 # Booking confirmation view
+
+
 def booking_confirmation(request, event_id):
     event = get_object_or_404(Event, id=event_id)
     booking = event.bookings.last()  # Retrieve the last booking
@@ -116,7 +119,7 @@ def event_update(request, id):
         form = EventForm(request.POST, instance=event)
         if form.is_valid():
             form.save()
-            messages.success(request, "Fab! You have successfully updated your event!")  # Success message
+            messages.success(request, "Fab! You have successfully updated your event!")
             return redirect("event_list")
     else:
         form = EventForm(instance=event)

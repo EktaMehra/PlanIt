@@ -7,5 +7,5 @@ urlpatterns = [
     path('login/', EventOrganizerLoginView.as_view(), name='organizer_login'),
     path('register/', views.register, name='register'),
     path('logout/', auth_views.LogoutView.as_view(), name='logout'),
-    path('check-username/', check_username, name='check_username'), # New URL for username validation
+    path('check-username/', check_username, name='check_username'),
 ]

@@ -4,6 +4,7 @@ from django.contrib.auth.views import LoginView
 from django.http import JsonResponse
 from django.contrib.auth.models import User
 
+
 # Registration view
 def register(request):
     print("Registration view accessed.")
@@ -19,6 +20,7 @@ def register(request):
         form = UserCreationForm()
     return render(request, 'registration/register.html', {'form': form})
 
+
 # Username validation view (AJAX)
 def check_username(request):
     username = request.GET.get("username", None)
@@ -26,5 +28,6 @@ def check_username(request):
         return JsonResponse({"is_taken": True})
     return JsonResponse({"is_taken": False})
 
+
 class EventOrganizerLoginView(LoginView):
-    template_name = 'members/login.html'  # Custom template for event organizers
+    template_name = 'members/login.html'  # event organizers custom template

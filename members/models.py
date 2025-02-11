@@ -12,12 +12,12 @@ class CustomUser(AbstractUser):
         related_name='customuser_set',  # Unique related name
         blank=True,
     )
-    
     user_permissions = models.ManyToManyField(
         'auth.Permission',
         related_name='customuser_permissions_set',  # Unique related name
         blank=True,
     )
+
 
 # Log statement to confirm model loading
 print("CustomUser model loaded successfully.")
