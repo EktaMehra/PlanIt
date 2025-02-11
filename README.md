@@ -48,7 +48,7 @@ Update Event: Any changes made to an event are updated in real-time:
 - To become a member, the user has to enter a username and password.
 - If the provided username and password are valid, the user is automatically taken to the login page where they can then enter their credentials to create events.
 ### Validation
-![Username validation](assets/features/)
+![Username validation](assets/validation/username-validation.jpg)
 - If the entered username is already taken, the form shows an error message and asks the user to use a different username. 
 - After fixing the username and reentering the same password twice, the user can submit the form successfully.
 
@@ -65,11 +65,16 @@ Update Event: Any changes made to an event are updated in real-time:
 Users can book available events by providing their name and email, ensuring a simple and streamlined booking process.
 
 ## Messaging
-![Alert Messages](assets/features/messaging.jpg)
-Upon 
+Upon updating or creating an event a confirmation message pops up.
+![Update Message](assets/features/messaging.jpg)
+![Create event Message](assets/features/message1.jpg)
+After you have booked an event, a message will pop up to confirm the name, time and location of the event that is booked along with the name of the one who have booked the event.
+![Booking confirmation message](assets/features/message2.jpg)
+If the organizer of the event wishes to delete their event they click the delete button which will take them to a delete confirmation page, that confirm if the organizer wants to delete the page.
+![Delete confirm page](assets/delete-warning.jpg)
 
 ## Footer
-![Footer](assets/)
+![Footer](assets/features/footer.jpg)
 A simple footer providing copyright information.
 
 ## Additional Features for Future Enhancements
@@ -82,8 +87,8 @@ A simple footer providing copyright information.
 ## Testing
 
 ### Manual Testing
-
 - Ensuring core features function as expected by manually testing event creation, searching, and booking.
+![Manual testing](assets/tests-results.jpg)
 - I shared the website with multiple users to confirm its functionality and to get feedback on their experience.
 
 ### Automated Testing
@@ -92,29 +97,25 @@ A simple footer providing copyright information.
 
 ### Validation
 
-- **Python:** 
+- **Python:**
 
-Code validated using PEP8 to maintain coding standards.
+    ![python validation](assets/validation/python-validation.jpg)
+   Code validated using PEP8 to maintain coding standards.
 
 - **HTML:** 
-
-Checked using the W3C HTML validator.
+    ![html validation](assets/validation/HTMLvalidator.jpg)
+   Checked using the W3C HTML validator.
 
 - **CSS:** 
-
-Verified for errors using the W3C CSS validator.
+    ![CSS validation](assets/validation/CSSvalidatior.jpg)
+   Verified for errors using the W3C CSS validator.
 
 - **JavaScript:** 
-
-Console logs and debugging tools were used to ensure smooth execution.
-
-- **Bugs:**
-There are no known unfixed bugs. Identified and fixed any issues encountered during testing.
-
+    ![javascript validation](assets/validation/jsvalidator.jpg)
+   Console logs and debugging tools were used to ensure smooth execution.
 
 - **Lighthouse Report:**
-
-![Lighthouse Report](assets/)  
+![Lighthouse Report](assets/lighthouse.jpg)  
 The website was tested with Google Lighthouse.
 
 ## Development Process
@@ -127,7 +128,7 @@ The website was tested with Google Lighthouse.
 
 - Following an iterative approach to implement features step by step while continuously testing and improving the platform.
 
-- **Git**
+### Git
 
 - I started the program and repository by using the gitpod python template provided by the Code Insitute.
 - Then I regularly staged my changes using the command git add . and then committed the staged changes to my local repository using git commit -m 'short descriptive message here'.
