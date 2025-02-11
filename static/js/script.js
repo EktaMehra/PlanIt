@@ -1,4 +1,4 @@
-// username validation
+// Username validation
 document.addEventListener("DOMContentLoaded", function () {
     const usernameInput = document.getElementById("id_username");
     const usernameFeedback = document.createElement("small");
@@ -31,7 +31,6 @@ document.addEventListener("DOMContentLoaded", function () {
 // Real-time search filter
 document.addEventListener("DOMContentLoaded", function () {
     const searchInput = document.getElementById("searchInput");
-    const eventsContainer = document.getElementById("eventsContainer");
     const eventCards = document.querySelectorAll(".event-card");
 
     searchInput.addEventListener("input", function () {
