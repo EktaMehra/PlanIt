@@ -5,157 +5,119 @@
 [Deployed PlanIt Application](https://planitbyem-195a427d54d7.herokuapp.com/)
 
 ## Project Overview
-
+!Mockup (responsive page screenshot)
 PlanIt is an intuitive event management platform that allows users to create, manage, and book events effortlessly. Whether you're an event organizer or an attendee, PlanIt streamlines the process of event discovery, registration, and management.
 
-## Objective
+# Objective
 
-The purpose of this project is to demonstrate proficiency in Full-Stack web development using Django, HTML, CSS, JavaScript, and Python. The project follows best practices in software development, including Object-Oriented Programming, database management, testing, and deployment.
+The purpose of this project is to demonstrate my proficiency in Full-Stack web development using Django, HTML, CSS, JavaScript, and Python. The project follows best practices in software development, including Object-Oriented Programming, database management, testing, and deployment.
 
-## Features
+# Features
 
-### **User Authentication**
+## Navbar
+[Nav bar](assets/features/nav-box.jpg)
+- A responsive navigation bar that allows users to easily navigate between different sections of the site, including Home, Login, and Register.
 
-- Users can register, log in, and log out securely.
-- Username validation ensures that no two users share the same username.
+## Search Section
+[Search section](assets/features/search-bar.jpg)
+- A search functionality that enables users to filter events by name or category in real-time, providing a seamless browsing experience.
 
-### **Event Management**
+## Event List
+[Event list](assets/features/events-list.jpg)
+- A paginated list displaying available events with essential details like name, description, date, and category, making it easy for users to find and explore events.
 
-- Create, update, and delete events.
-- View event details including description, date, time, location, and category.
+## Event Detail
+[Event details](assets/features/description.jpg)
+- A dedicated page for each event, providing in-depth details, including event description, location, date, and time, along with a booking option.
 
-### **Search & Filtering**
+## Create Event Page
 
-- Users can search for events by name or category.
-- Implemented real-time search filtering using JavaScript.
+- Allows registered users to create new events by filling out a form with event details.
+- Edit Event: Users can modify event details after creation.
+- Delete Event: Users can remove their events if necessary.
+- Update Event: Any changes made to an event are updated in real-time.
 
-### **Booking System**
+## Book Event
 
-- Users can book events without logging in.
-- Organizers can view the list of booked users.
+- Users can book available events by providing their name and email, ensuring a simple and streamlined booking process.
 
-### **Pagination & Navigation**
+## Register Page
 
-- Events are displayed with pagination for better user experience.
-- Navigation bar ensures seamless access to different pages.
+- New users can create an account to manage and book events.
 
-### **Responsive Design**
+## Login Page
 
-- Fully mobile-friendly and accessible across different devices.
-- Enhanced UI/UX with Bootstrap styling.
+- Registered users can log in to create, edit, and manage their events while keeping track of their bookings.
 
-### **Error Handling & Messages**
+## Footer
 
-- Users receive confirmation messages for successful event creation, updates, and booking.
-- Clear error messages guide users in case of invalid inputs.
+- A simple footer providing copyright information.
 
-## Technologies Used
+## Additional Features for Future Enhancements
 
-### **Backend**
-
-- Python & Django
-- PostgreSQL (Database)
-
-### **Frontend**
-
-- HTML, CSS (Bootstrap for styling)
-- JavaScript (Search filtering & username validation)
-
-### **Hosting & Storage**
-
-- Deployed on Heroku
-- Cloudinary for media file storage
-
-## Installation & Setup
-
-### **Clone the Repository**
-
-```sh
-$ git clone https://github.com/EktaMehra/PlanIt.git
-$ cd PlanIt
-```
-
-### **Create and Activate a Virtual Environment**
-
-```sh
-$ python -m venv venv
-$ venv\Scripts\activate  # On Windows
-```
-
-### **Install Dependencies**
-
-```sh
-$ pip install -r requirements.txt
-```
-
-### **Set Up Environment Variables**
-
-Create a `.env` file and add the following:
-
-```sh
-SECRET_KEY='your-secret-key'
-DATABASE_URL='your-database-url'
-CLOUDINARY_URL='your-cloudinary-url'
-```
-
-### **Apply Migrations & Run the Server**
-
-```sh
-$ python manage.py migrate
-$ python manage.py runserver
-```
-
-## Deployment (Heroku)
-
-1. Create a Heroku app:
-   ```sh
-   $ heroku create planitbyem
-   ```
-2. Add the Heroku remote repository:
-   ```sh
-   $ heroku git:remote -a planitbyem
-   ```
-3. Push the code to Heroku:
-   ```sh
-   $ git push heroku main
-   ```
-4. Run database migrations:
-   ```sh
-   $ heroku run python manage.py migrate
-   ```
-5. Set up environment variables in Heroku:
-   ```sh
-   $ heroku config:set SECRET_KEY='your-secret-key'
-   $ heroku config:set DATABASE_URL='your-database-url'
-   $ heroku config:set CLOUDINARY_URL='your-cloudinary-url'
-   ```
-6. Open the deployed application:
-   ```sh
-   $ heroku open
-   ```
+- Categories Section: A separate section where users can directly browse events by category.
+- Social Sharing: Users will have the ability to share events via social media platforms.
+- Payment Integration: Option to include payment processing for paid events.
 
 ## Testing
 
-### **Manual Testing**
+### Manual Testing
 
-- Verified all core functionalities like event creation, searching, and booking.
-- Tested responsiveness on different devices.
-- Ensured smooth navigation between pages.
+- Ensuring core features function as expected by manually testing event creation, searching, and booking.
 
-### **Automated Testing**
+### Automated Testing
 
-- Django unit tests were implemented for event creation, user authentication, and booking system.
-- Run tests with:
-  ```sh
-  $ python manage.py test
-  ```
+- Unit tests will be implemented for critical functionalities such as user authentication, event creation, and booking processes.
 
-## Future Enhancements
+### Validation
 
-- Implement user profiles for event organizers.
-- Allow attendees to leave reviews and ratings for events.
-- Add event reminders via email notifications.
-- Improve search functionality with advanced filters.
+- Python: Code validated using PEP8 to maintain coding standards.
+- HTML: Checked using the W3C HTML validator.
+- CSS: Verified for errors using the W3C CSS validator.
+- JavaScript: Console logs and debugging tools were used to ensure smooth execution.
+- Bugs: Identified and fixed any issues encountered during testing.
+
+## Development Process
+
+### Development Preparation
+
+- Initial project setup, including database configuration, static file management, and necessary dependencies.
+
+### Agile Development
+
+- Following an iterative approach to implement features step by step while continuously testing and improving the platform.
+
+- **Git**
+
+- I started the program and repository by using the gitpod python template provided by the Code Insitute.
+- Then I regularly staged my changes using the command git add . and then committed the staged changes to my local repository using git commit -m 'short descriptive message here'.
+- Finally, I would push the commits from my local repository up to the GitHub repository using the command git push.
+- With every push, Heroku automatically deploys my latest commit from the 'main' branch to the Heroku app.
+
+### Deployment
+
+**Deployment Prepration**
+Before the deployment, the following steps were taken to prepare the application for the deployment on Heroku:
+- The setting DEBUG in the settings.py was set to FALSE.
+- All the dependencies were stored in the requirements.txt file with the command `pip3 freeze --local > requirements.txt`.
+- The start command for the application `web: gunicorn event_manage.wsgi` was stored in a Procfile.
+
+**Setup**
+The steps to deploy an app to Heroku are as follows:
+- Create a new App from the Heroku dashboard.
+- Enter a name for the app and select a region, then click on "Create App".
+- On the page of the app that opens, go to the "Settings" tab.
+- In Settings add the necessary config vars, for this project I added my cloudinary URL, database URL, and django secret key
+- Next, add the buildpack "Heroku/Python".
+- Afterwards, go to the "Deploy" tab on the app page.
+- In the "Deployment method" section, select "GitHub" and follow the steps to connect Heroku with GitHub.
+- Then, in the "Connect to GitHub" section, search for the repository that is supposed to be deployed and click on "Connect".
+- The last step is to deploy a branch manually by selecting the branch and clicking the button "Deploy Branch" in the "Manual deploys" section.
+
+## Content and Media
+- All the articles were either copied from [Eventbrite](https://www.eventbrite.co.uk/) or are made up.
+- All the images were downloaded from [Pexels](https://www.pexels.com/).
+- All the icons on the website are from [FontAwesome](https://fontawesome.com/).
 
 ## Credits & Acknowledgments
 
@@ -167,4 +129,3 @@ $ python manage.py runserver
 ---
 
 This project was built as part of the Code Institute Full-Stack Development course.
-
