@@ -4,8 +4,6 @@ from django.contrib.auth.models import AbstractUser
 
 # Create your models here.
 class CustomUser(AbstractUser):
-    full_name = models.CharField(max_length=255)
-
     # Modify groups and user_permissions fields to avoid clashes
     groups = models.ManyToManyField(
         'auth.Group',
