@@ -120,30 +120,54 @@ The website was tested with Google Lighthouse.
 
 ## Development Process
 
-### Development Preparation
+Throughout the project, I aimed to follow an agile development approach to ensure flexibility and focus on iterative progress.
 
-- Initial project setup, including database configuration, static file management, and necessary dependencies.
+### Development Preparation
+The initial step in my process was to thoroughly plan the website and its core functionalities. Here’s how I approached it:
+
+- **Class Diagram:**
+I began by creating a simple class diagram to outline the models I intended to implement, including their attributes and relationships.
+[Link to the class diagram](assets/class_diagram.jpg)
+
+- **User Interface Planning:**
+I brainstormed the layout of the website and created [wireframes](assets/Wireframes.jpg) on Balsamiq for key pages like the homepage and event detail page.
+
+- **User Stories and Tasks:**
+I wrote a few user stories and tasks at the beginning and continued to develop them as the project progressed. These were documented in my GitHub Project to ensure clarity and organization.
 
 ### Agile Development
+Using GitHub Projects, I categorized all issues into two milestones:
 
-- Following an iterative approach to implement features step by step while continuously testing and improving the platform.
+- "MVP" (Minimum Viable Product): Issues critical for the core functionality of the project.
+- "Additional Features": Issues that were not essential for the MVP but could enhance the project if time allowed.
 
-### Git
+Each issue was labeled as a user story. They were also labled into categories for better organization.
 
-- I started the program and repository by using the gitpod python template provided by the Code Insitute.
-- Then I regularly staged my changes using the command git add . and then committed the staged changes to my local repository using git commit -m 'short descriptive message here'.
-- Finally, I would push the commits from my local repository up to the GitHub repository using the command git push.
-- With every push, Heroku automatically deploys my latest commit from the 'main' branch to the Heroku app.
+My development workflow followed this structure:
+
+- I selected one issue from the "To-do" column in the MVP board and moved it to the "In Progress" column.
+- Once the acceptance criteria for the issue were fulfilled, I closed the issue, which automatically moved it to the "Done" column.
+- I have added the user stories that are not necessary for my project at this stage in the "Backlog" column.
+
+### Git Workflow
+- Initially, I started the project in Gitpod using the Gitpod Python template provided by Code Institute. Later, I migrated the project to Visual Studio Code (VS Code) for continued development.
+- I regularly staged my changes using git add . and committed them to my local repository with git commit -m 'short descriptive message here'.
+- Finally, I pushed the commits to the GitHub repository using git push.
+- With each push to the main branch, Heroku automatically deployed the latest version of my project to the live application.
+
+This iterative and organized approach helped ensure steady progress and minimized errors throughout the development process.
 
 ### Deployment
 
 **Deployment Prepration**
+
 Before the deployment, the following steps were taken to prepare the application for the deployment on Heroku:
 - The setting DEBUG in the settings.py was set to FALSE.
 - All the dependencies were stored in the requirements.txt file with the command `pip3 freeze --local > requirements.txt`.
 - The start command for the application `web: gunicorn event_manage.wsgi` was stored in a Procfile.
 
 **Setup**
+
 The steps to deploy an app to Heroku are as follows:
 - Create a new App from the Heroku dashboard.
 - Enter a name for the app and select a region, then click on "Create App".
