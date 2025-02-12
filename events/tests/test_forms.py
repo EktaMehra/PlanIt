@@ -2,6 +2,7 @@ from django.test import TestCase
 from events.forms import EventForm, BookingForm
 from django.contrib.auth.models import User
 
+
 # Test Events Form
 class EventFormTest(TestCase):
     def test_event_form_valid(self):
@@ -21,6 +22,7 @@ class EventFormTest(TestCase):
     def test_event_form_invalid(self):
         form = EventForm(data={})
         self.assertFalse(form.is_valid())
+
 
 # Test Booking Form
 class BookingFormTest(TestCase):
