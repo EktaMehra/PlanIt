@@ -3,7 +3,7 @@
 {% block content %}
 <div class="container mt-5">
     <h2 class="mb-4">Create Your Event Here</h2>
-    <form method="post" novalidate>
+    <form method="post" novalidate class="form-card">
         {% csrf_token %}
         {{ form.as_p }}
         <button type="submit" class="btn btn-primary">Submit</button>

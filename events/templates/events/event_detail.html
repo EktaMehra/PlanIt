@@ -18,7 +18,7 @@
     {% else %}
     <div class="mt-4">
         <h3>Book This Event</h3>
-        <form method="post" novalidate>
+        <form method="post" novalidate class="form-card">
             {% csrf_token %}
             {% if messages %}
             <div>
