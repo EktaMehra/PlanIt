@@ -3,6 +3,9 @@ from .models import Booking, Event
 
 
 class EventForm(forms.ModelForm):
+    """
+    Create event form.
+    """
     date = forms.DateField(
         widget=forms.DateInput(attrs={'type': 'date', 'class': 'form-control'}),
     )
@@ -19,6 +22,9 @@ class EventForm(forms.ModelForm):
 
 
 class BookingForm(forms.ModelForm):
+    """
+    Book event form.
+    """
     class Meta:
         model = Booking
         fields = ['name', 'email']

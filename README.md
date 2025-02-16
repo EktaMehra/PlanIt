@@ -105,7 +105,8 @@ A simple footer providing copyright information.
 ## Testing
 
 ### Manual Testing
-- Ensuring core features function as expected by manually testing event creation, searching, and booking. [List of Manual Tests](manual-testing_md)
+- Ensuring core features function as expected by manually testing event creation, searching, and booking. 
+- This is a [List of Manual Tests](manual-testing_md).
 - I shared the website with multiple users to confirm its functionality and to get feedback on their experience.
 
 
@@ -122,7 +123,8 @@ A simple footer providing copyright information.
 - **Python:**
 
     ![python validation](assets/validation/python-validation.jpg)
-   Code validated using PEP8 to maintain coding standards.
+    
+    Code validated using PEP8 to maintain coding standards.
 
 - **HTML:** 
     ![html validation](assets/validation/HTMLvalidator.jpg)

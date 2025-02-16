@@ -4,6 +4,9 @@ from django.contrib.auth.models import User
 
 # Create your models here.
 class Event(models.Model):
+    """
+    Create event model.
+    """
     name = models.CharField(max_length=255)
     description = models.TextField(max_length=500)
     location = models.CharField(max_length=300)
@@ -17,6 +20,9 @@ class Event(models.Model):
 
 
 class Booking(models.Model):
+    """
+    Book event model.
+    """
     event = models.ForeignKey(Event, on_delete=models.CASCADE, related_name='bookings')
     name = models.CharField(max_length=255)
     email = models.EmailField()
