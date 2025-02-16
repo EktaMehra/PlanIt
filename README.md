@@ -5,8 +5,25 @@
 [Deployed PlanIt Application](https://planitbyem-195a427d54d7.herokuapp.com/)
 
 ## Project Overview
-!Mockup (responsive page screenshot)
-PlanIt is an intuitive event management platform that allows users to create, manage, and book events effortlessly. Whether you're an event organizer or an attendee, PlanIt streamlines the process of event discovery, registration, and management.
+PlanIt is an intuitive event management platform designed to make creating, managing, and attending events effortless. Whether you're an event organizer planning your next big event or an attendee looking for exciting opportunities, PlanIt simplifies every step of the process.
+
+**For Organizers:**
+Create events with comprehensive details like name, description, date, time, location, and category.
+Manage your events easily with options to edit, update, or delete them.
+Access your personalized "My Events" section to keep track of everything you've created.
+
+**For Attendees:**
+Explore a wide variety of events, filtered by name or category.
+View detailed event descriptions, dates, and locations.
+Seamlessly book your spot at any event with an easy-to-use booking form.
+PlanIt features a responsive and user-friendly design that ensures a smooth experience across devices. The platform also prioritizes accessibility and ease of use, with functionalities like:
+
+- Search and Filtering: Quickly find events by keywords or categories using dynamic search functionality.
+- Authentication System: Secure login and registration ensure a personalized and safe experience for users.
+- Event Management Dashboard: For logged-in users, managing events has never been easier.
+- Modern UI/UX Design: A clean, visually appealing interface with interactive elements to enhance user engagement.
+
+Whether you're creating memories or discovering new experiences, PlanIt ensures a seamless and efficient journey for all. 
 
 # Objective
 
@@ -19,19 +36,24 @@ The purpose of this project is to demonstrate my proficiency in Full-Stack web d
 A responsive navigation bar that allows users to easily navigate between different sections of the site, including Home, Login, and Register.
 ## Page Description
 ![Page description](assets/features/description.jpg)
+This page description helps the users understand the purpose of the page and also gives a brief on all the functions they can use.
  
 
 ## Search Section
 ![Search section](assets/features/search-bar.jpg)
-A search functionality that enables users to filter events by name or category in real-time, providing a seamless browsing experience.
+A search functionality that enables users to filter events by name or category in real-time, providing a seamless browsing experience and also gives a quick access to events.
 
 ## Event List
 ![Event list](assets/features/events-list.jpg)
 A paginated list displaying available events with essential details like name, description, date, and category, making it easy for users to find and explore events.
 
 ## Event Detail
-![Event details]
+![Event details](assets/features/event-description.jpg)
 A dedicated page for each event, providing in-depth details, including event description, location, date, and time, along with a booking option.
+
+## Book Event
+![Book event](assets/features/book-event.jpg)
+Users can book available events by providing their name and email, ensuring a simple and streamlined booking process.
 
 ## Create Event Page
 ![Create event](assets/features/create_event_page.jpg)
@@ -60,10 +82,6 @@ Update Event: Any changes made to an event are updated in real-time:
 - To log in, the user needs to have their username and password registered on the register page.
 - If the username and/or password are incorrect, the page indicates an error.
 
-## Book Event
-![Book event](assets/features/book-event.jpg)
-Users can book available events by providing their name and email, ensuring a simple and streamlined booking process.
-
 ## Messaging
 Upon updating or creating an event a confirmation message pops up.
 ![Update Message](assets/features/messaging.jpg)
@@ -87,13 +105,17 @@ A simple footer providing copyright information.
 ## Testing
 
 ### Manual Testing
-- Ensuring core features function as expected by manually testing event creation, searching, and booking.
-![Manual testing](assets/tests-results.jpg)
+- Ensuring core features function as expected by manually testing event creation, searching, and booking. [List of Manual Tests](manual-testing_md)
 - I shared the website with multiple users to confirm its functionality and to get feedback on their experience.
 
-### Automated Testing
 
+### Automated Testing
+![Automated testing](assets/tests-results.jpg)
 - Unit tests will be implemented for critical functionalities such as user authentication, event creation, and booking processes.
+
+### Django Tests
+- The Django framework includes a testing library, so no further setup is necessary.
+- I started the Django tests with the command `python3 manage.py test`.
 
 ### Validation
 
