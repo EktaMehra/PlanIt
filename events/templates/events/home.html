@@ -17,7 +17,7 @@
     <!-- Search Section -->
     <div class="search-section my-4">
         <form method="GET" action="{% url 'home' %}" class="form-card">
-            <input type="text" name="q" placeholder="Search events..." value="{{ query }}">
+            <input type="text" name="q" id="searchInput" placeholder="Search events..." value="{{ query }}">
             <button type="submit">Search</button>
         </form>
     </div>
