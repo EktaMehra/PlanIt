@@ -88,10 +88,6 @@ header h1 {
     margin: 5px 5px 5px 5px;
 }
 
-/* Space between Login & Register */
-.nav-item + .nav-item {
-    margin-left: 15px; /* Space between Login & Register */
-}
 
 
 /* Buttons */
