@@ -4,7 +4,7 @@
 <div class="auth-container">
     <div class="auth-card">
         <h2 class="text-center">Login to Your Account</h2>
-        <form method="post" novalidate>
+        <form method="post" novalidate class="form-card">
             {% csrf_token %}
             {{ form.non_field_errors }}
             {{ form.as_p }}
