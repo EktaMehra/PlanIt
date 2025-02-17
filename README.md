@@ -34,11 +34,11 @@ The purpose of this project is to demonstrate my proficiency in Full-Stack web d
 ## Navbar
 ![Nav bar](assets/features/nav-box.jpg)
 A responsive navigation bar that allows users to easily navigate between different sections of the site, including Home, Login, and Register.
+
 ## Page Description
 ![Page description](assets/features/description.jpg)
 This page description helps the users understand the purpose of the page and also gives a brief on all the functions they can use.
  
-
 ## Search Section
 ![Search section](assets/features/search-bar.jpg)
 A search functionality that enables users to filter events by name or category in real-time, providing a seamless browsing experience and also gives a quick access to events.
@@ -106,7 +106,7 @@ A simple footer providing copyright information.
 
 ### Manual Testing
 - Ensuring core features function as expected by manually testing event creation, searching, and booking. 
-- This is a [List of Manual Tests](manual-testing_md).
+- This is a [List of Manual Tests](manual-testing.md).
 - I shared the website with multiple users to confirm its functionality and to get feedback on their experience.
 
 
@@ -134,13 +134,16 @@ A simple footer providing copyright information.
     ![CSS validation](assets/validation/CSSvalidatior.jpg)
    Verified for errors using the W3C CSS validator.
 
-- **JavaScript:** 
+- **JavaScript:**
+
     ![javascript validation](assets/validation/jsvalidator.jpg)
-   Console logs and debugging tools were used to ensure smooth execution.
+
+    Console logs and debugging tools were used to ensure smooth execution.
 
 - **Lighthouse Report:**
-![Lighthouse Report](assets/lighthouse.jpg)  
-The website was tested with Google Lighthouse.
+    ![Lighthouse Report](assets/lighthouse.jpg)
+    
+    The website was tested with Google Lighthouse.
 
 ## Development Process
 
