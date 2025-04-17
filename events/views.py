@@ -47,7 +47,7 @@ def create_event(request):
             event = form.save(commit=False)
             event.created_by = request.user  # Ensure 'created_by' is a field in the Event model
             event.save()
-            messages.success(request, "Yay!! Your Event has been created successfully!")
+            messages.success(request, "Yay!! Your Event has been created successfully!")  # success message for creating event
             return redirect('event_list')  # Redirect to the list of events
     else:
         print("Rendering empty event form.")
@@ -62,7 +62,8 @@ def event_update(request, id):
         form = EventForm(request.POST, instance=event)
         if form.is_valid():
             form.save()
-            return redirect('home')
+            messages.success(request, "Fab! You have successfully updated your event!")  # success message for creating event
+            return redirect("event_list")
     else:
         form = EventForm(instance=event)
     return render(request, 'events/event_form.html', {'form': form, 'action': 'Update'})
@@ -100,8 +101,6 @@ def event_detail(request, id):
 
 
 # Booking confirmation view
-
-
 def booking_confirmation(request, event_id):
     event = get_object_or_404(Event, id=event_id)
     booking = event.bookings.last()  # Retrieve the last booking
@@ -109,18 +108,3 @@ def booking_confirmation(request, event_id):
         'event': event,
         'booking': booking,
     })
-
-
-# Success messages for Creating or Updating the events
-
-def event_update(request, id):
-    event = get_object_or_404(Event, id=id)
-    if request.method == "POST":
-        form = EventForm(request.POST, instance=event)
-        if form.is_valid():
-            form.save()
-            messages.success(request, "Fab! You have successfully updated your event!")
-            return redirect("event_list")
-    else:
-        form = EventForm(instance=event)
-    return render(request, "events/event_update.html", {"form": form})
