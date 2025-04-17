@@ -145,6 +145,42 @@ A simple footer providing copyright information.
     
     The website was tested with Google Lighthouse.
 
+## Bug Fixes:
+
+A critical security bug was discovered in the views.py file — the event_update view function had been accidentally duplicated. The second version lacked the @login_required decorator, which opened a major security loophole.
+
+**What went wrong?**
+
+The duplicated event_update view overrode the secured one.
+
+This version did not check if a user was logged in, meaning anyone with a valid URL could potentially access the event update form.
+
+Unauthorized users could view or attempt to edit event data, completely bypassing authentication.
+
+**Why It Was a Problem?**
+
+- Pages that modify user-generated content must be strictly access-controlled.
+- Without the @login_required decorator, the update route became publicly accessible.
+- There was no ownership check, allowing any user to possibly interfere with events they didn't create.
+
+**How It Was Fixed?**
+
+The bugged, unsecured function was deleted, and the correct version was retained with proper access control.
+
+
+**Why This Version Is Secure?**
+
+- @login_required: Ensures only logged-in users can access this view.
+- Ownership Check via Query: Combines get_object_or_404() with created_by=request.user, meaning the view only returns the event if the logged-in user is its creator. If not, it throws a 404 — stopping unauthorized edits cold.
+- Form binding with instance check: Ensures the correct object is modified, and no rogue data is injected.
+
+**Post-Fix Testing**
+- Tried accessing the update page as a guest → redirected to login.
+- After login tried accessing another user’s event via URL → redirected to event view page with details of the event and an option to book the event to attend, which will also happen if a guest tries to visit the events created by another user. So this verifies that the security bug is now fixed.
+- Verified event update works for the creator.
+- Tested validation, error handling, and success messages. 
+
+
 ## Development Process
 
 Throughout the project, I aimed to follow an agile development approach to ensure flexibility and focus on iterative progress.
